@@ -7,7 +7,7 @@ dotenv.config();
 
 const BOT_TOKEN = process.env.BOT_TOKEN;
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
-const GROUP_ID = process.env.GROUP_ID;
+const GROUP_ID = process.env.GROUP_ID; //you can remove this field if you want to make it work in all groups where it added
 const BOT_USERNAME = process.env.BOT_USERNAME;
 
 const bot = new TelegramBot(BOT_TOKEN, {polling: true});
@@ -21,7 +21,7 @@ const response = await axios.post(
 {
 model: 'text-davinci-003',
 prompt: prompt,
-max_tokens: 100
+max_tokens: 3900 //davinci-003 model is limited to 4096 tokens including promt
 },
 {
 headers: {
