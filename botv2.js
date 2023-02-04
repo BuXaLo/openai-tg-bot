@@ -17,6 +17,7 @@ bot.onText(new RegExp(`@${BOT_USERNAME} chat`), async (msg) => {
   const prompt = msg.text.split('chat')[1].trim();
 
   try {
+    // Call OpenAI API to generate an image
     const response = await axios.post(
       'https://api.openai.com/v1/completions',
       {
