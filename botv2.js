@@ -8,6 +8,7 @@ dotenv.config();
 const BOT_TOKEN = process.env.BOT_TOKEN;
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 const BOT_USERNAME = process.env.BOT_USERNAME;
+const GROUP_ID = process.env.GROUP_ID; //you can remove this field if you want to make it work in all groups where it added
 
 const bot = new TelegramBot(BOT_TOKEN, {polling: true});
 
