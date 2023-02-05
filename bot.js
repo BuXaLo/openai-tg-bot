@@ -12,9 +12,9 @@ const GROUP_ID = process.env.GROUP_ID; //you can remove this field if you want t
 
 const bot = new TelegramBot(BOT_TOKEN, {polling: true});
 
-bot.onText(new RegExp(`@${BOT_USERNAME} chat`), async (msg) => {
+bot.onText(/^\/chat (.+)/, async (msg, match) => {
   const chatId = msg.chat.id;
-  const prompt = msg.text.split('chat')[1].trim();
+  const prompt = match[1];
 
   try {
     // Call OpenAI API to generate an image
@@ -43,9 +43,9 @@ bot.onText(new RegExp(`@${BOT_USERNAME} chat`), async (msg) => {
     bot.sendMessage(chatId, 'An error occurred while processing your request. Please try again later.');
   }
 });
-bot.onText(new RegExp(`@${BOT_USERNAME} pic`), async (msg) => {
+bot.onText(/^\/pic (.+)/, async (msg, match) => {
   const chatId = msg.chat.id;
-  const prompt = msg.text.split('pic')[1].trim();
+  const prompt = match[1];
 
   try {
     // Call OpenAI API to generate an image
